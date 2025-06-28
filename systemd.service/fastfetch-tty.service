@@ -1,0 +1,12 @@
+[Unit]
+Description=Update /etc/issue with neofetch
+Before=getty@tty1.service getty@tty2.service getty@tty3.service getty@tty4.service getty@tty5.service getty@tty6.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/fastfetch-tty.sh
+StandardOutput=file:/etc/issue
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target                                                                                                                 
